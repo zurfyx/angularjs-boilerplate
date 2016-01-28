@@ -45,7 +45,7 @@ gulp.task('html', function() {
 
 // copy img files
 gulp.task('img', function() {
-    return gulp.src('src/assets/img/**/*.js')
+    return gulp.src('src/assets/img/**/*')
         .pipe(gulp.dest('build/assets/img'));
 });
 
