@@ -1,14 +1,6 @@
-.input {
-  border-radius: 3px;
-  border: 4px solid #ddd;
-  color: #555;
-  font-size: 17px;
-  padding: 10px 20px;
-  display: inline-block;
-  outline: 0;
-}
+$darkgrey: #333;
 
-.error-input {
-  @extend .input;
-  border:4px solid #e74c3c;
+body {
+  color: $darkgrey;
+  font-family: Helvetica Neue, Helvetica, Arial, serif;
 }

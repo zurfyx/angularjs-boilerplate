@@ -71,7 +71,7 @@ gulp.task('watch', function() {
     gulp.watch('src/assets/js/**/*.js', ['js-non-angular']);
     gulp.watch(['src/assets/scss/*.scss', 'src/app/**/*.scss'], ['sass']);
     gulp.watch(['src/assets/css/**/*.css', 'src/app/**/*.css'], ['css']);
-    gulp.watch('src/app/**/*.html', ['html']);
+    gulp.watch(['src/index.html','src/app/**/*.html'], ['html']);
     gulp.watch('src/assets/img/**/*', ['img']);
 });
 
