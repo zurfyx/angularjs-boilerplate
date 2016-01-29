@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     minifyCss = require('gulp-minify-css'),
-    htmlmin = require('gulp-htmlmin');
+    htmlmin = require('gulp-htmlmin'),
+    connect = require('gulp-connect');
 
 
 // concatenate JS files
@@ -52,7 +53,8 @@ gulp.task('css', function() {
 gulp.task('html', function() {
     gulp.src(['src/app/**/*.html'])
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('build/app'));
+        .pipe(gulp.dest('build/app'))
+        .pipe(connect.reload());
     gulp.src(['src/index.html'])
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('build'));
@@ -64,7 +66,18 @@ gulp.task('img', function() {
         .pipe(gulp.dest('build/assets/img'));
 });
 
-//watch for changes
+// start server
+gulp.task('http-server', function() {
+    connect.server({
+        host:'localhost',
+        port:8000,
+        root: 'build/',
+        fallback: 'build/index.html',
+        livereload: true
+    });
+});
+
+// watch for changes
 gulp.task('watch', function() {
     gulp.watch('src/app/**/*.js', ['js']);
     gulp.watch('src/assets/libs/**/*.js', ['libs']);
@@ -84,6 +97,7 @@ gulp.task('default', [
     'css',
     'html',
     'img',
+    'http-server',
     'watch'
 ]);
 
