@@ -21,6 +21,6 @@
                 data: {
                     pageTitle: 'Home'
                 }
-            })
+            });
     }
 })();
