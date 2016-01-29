@@ -16,20 +16,23 @@ gulp.task('js', function() {
     ])
         .pipe(concat('app.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('build/app'));
+        .pipe(gulp.dest('build/app'))
+        .pipe(connect.reload());
 });
 
 // copy 3rd party libraries (bower)
 gulp.task('libs', function() {
     return gulp.src('src/assets/libs/**/*')
-        .pipe(gulp.dest('build/assets/libs'));
+        .pipe(gulp.dest('build/assets/libs'))
+        .pipe(connect.reload());
 });
 
 // copy non-angular JS files
 gulp.task('js-non-angular', function() {
    return gulp.src('src/assets/js/**/*.js')
        .pipe(uglify())
-       .pipe(gulp.dest('build/assets/js'));
+       .pipe(gulp.dest('build/assets/js'))
+       .pipe(connect.reload());
 });
 
 // generate css from sass files
@@ -39,6 +42,7 @@ gulp.task('sass', function() {
         .pipe(minifyCss())
         .pipe(concat('style.scss.css'))
         .pipe(gulp.dest('build/assets/css'))
+        .pipe(connect.reload());
 });
 
 // generate css from css files
@@ -46,7 +50,8 @@ gulp.task('css', function() {
     return gulp.src(['src/assets/css/**/*.css', 'src/app/**/*.css'])
         .pipe(concat('style.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('build/assets/css'));
+        .pipe(gulp.dest('build/assets/css'))
+        .pipe(connect.reload());
 });
 
 // copy html files
@@ -57,13 +62,15 @@ gulp.task('html', function() {
         .pipe(connect.reload());
     gulp.src(['src/index.html'])
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest('build'))
+        .pipe(connect.reload());
 });
 
 // copy img files
 gulp.task('img', function() {
     return gulp.src('src/assets/img/**/*')
-        .pipe(gulp.dest('build/assets/img'));
+        .pipe(gulp.dest('build/assets/img'))
+        .pipe(connect.reload());
 });
 
 // start server
