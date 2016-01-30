@@ -38,9 +38,9 @@ gulp.task('js-non-angular', function() {
 // generate css from sass files
 gulp.task('sass', function() {
     return gulp.src(['src/assets/scss/*.scss', 'src/app/**/*.scss'])
+        .pipe(concat('style.scss.css'))
         .pipe(sass({style: 'compressed'}))
         .pipe(minifyCss())
-        .pipe(concat('style.scss.css'))
         .pipe(gulp.dest('build/assets/css'))
         .pipe(connect.reload());
 });
