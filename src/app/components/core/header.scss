@@ -1,10 +1,21 @@
 #menu {
-  display: inline-block;
+  height: 50px;
+  display:block;
+  > * {
+    display: inline-block;
+    vertical-align: top;
+  }
   h1 {
-    display: inline;
-    margin-right: 10px;
+    padding: 0;
+    margin: 0 10px 0 0;
   }
   a {
     margin-left:10px;
   }
+  #logo {
+    @include bgcover("../img/angularjs.png");
+    width: 46px;
+    height: 46px;
+  }
 }
+
