@@ -1,6 +1,14 @@
-$darkgrey: #333;
-
 body {
-  color: $darkgrey;
-  font-family: Helvetica Neue, Helvetica, Arial, serif;
+  padding:15px;
+}
+
+#menu {
+  display: inline-block;
+  h1 {
+    display: inline;
+    margin-right: 10px;
+  }
+  a {
+    margin-left:10px;
+  }
 }

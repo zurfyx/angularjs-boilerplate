@@ -3,6 +3,7 @@
 
     angular
         .module('app.core', [
-            'app.core.home'
+            'app.core.home',
+            'app.core.about'
         ]);
 })();
